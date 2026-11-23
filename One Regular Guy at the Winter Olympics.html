@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One Regular Guy at the Winter Olympics</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap">
+<style>
+:root{--bg:#EAF0F4;--surf:#fff;--ink:#12233A;--mute:#5B6B7F;--pool:#2B6CB0;--gold:#E0A800;--brick:#C0452F;--line:#CBD6DF;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1826;--surf:#13263A;--ink:#E7EEF5;--mute:#93A5B8;--pool:#4FB3D9;--gold:#F2C230;--brick:#E46A52;--line:#27415B}}
+:root[data-theme="dark"]{--bg:#0C1826;--surf:#13263A;--ink:#E7EEF5;--mute:#93A5B8;--pool:#4FB3D9;--gold:#F2C230;--brick:#E46A52;--line:#27415B}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.02;font-weight:800;max-width:14ch}
+h2{font-size:1.3rem;margin-bottom:10px}
+.lede{color:var(--mute);max-width:60ch;margin:14px 0 22px}
+.ctrl{display:flex;flex-wrap:wrap;gap:12px;align-items:end;background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:14px}
+label{display:flex;flex-direction:column;font-size:.85rem;color:var(--mute);gap:4px}
+select,button{font:inherit;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button{background:var(--ink);color:var(--bg);border-color:var(--ink);cursor:pointer;font-weight:600}
+button:focus-visible,select:focus-visible{outline:3px solid var(--pool);outline-offset:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.kpi{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:14px}
+.kpi b{display:block;font:800 1.9rem/1.1 "Bricolage Grotesque",system-ui,sans-serif}
+.kpi span{color:var(--mute);font-size:.88rem}
+.panel{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.grp{font-weight:700;margin:14px 0 6px;color:var(--pool)}
+.row{display:grid;grid-template-columns:110px 1fr 150px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--line)}
+.bar{position:relative;height:16px;background:var(--bg);border-radius:8px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--pool);border-radius:8px;transition:width .5s}
+.bar u{position:absolute;top:0;bottom:0;width:3px;background:var(--gold)}
+.nums{font-size:.82rem;color:var(--mute);text-align:right}
+.nums b{color:var(--ink)}
+.lane{position:relative;height:30px;background:var(--bg);border-radius:6px;margin:8px 0;overflow:hidden}
+.lane::after{content:"";position:absolute;right:0;top:0;bottom:0;width:4px;background:repeating-linear-gradient(var(--ink) 0 5px,var(--surf) 5px 10px)}
+.dot{position:absolute;top:3px;left:0;height:24px;min-width:24px;border-radius:12px;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 8px;color:#12233A}
+.note{color:var(--mute);font-size:.82rem}
+.play{margin-top:4px;padding:4px 10px;font-size:.8rem}
+.stage{grid-column:1/-1;padding:4px 0 8px}
+.stage[hidden]{display:none}
+.cols{display:flex;gap:12px}.col{position:relative;flex:1;height:130px;background:var(--bg);border-radius:6px;overflow:hidden}
+.col s{position:absolute;left:0;right:0;height:2px;background:var(--gold);text-decoration:none}
+.col .dot{top:auto;bottom:0;left:calc(50% - 22px)}
+.lane.f{height:84px}.lane.f .dot{top:54px}
+.sc{position:relative;overflow:hidden;background:var(--bg);border-radius:8px;margin-bottom:8px;flex:1}
+.nm{position:absolute;left:8px;top:4px;font-size:.75rem;color:var(--mute)}
+.fg{position:absolute;left:0;top:0;transform-origin:30px 45px;overflow:visible}
+.gr{position:absolute;left:0;right:0;height:2px;background:var(--line)}
+.sc.fin::after{content:"";position:absolute;right:20px;top:0;bottom:0;width:4px;background:repeating-linear-gradient(var(--ink) 0 5px,var(--surf) 5px 10px)}
+.sc.swim{background:rgba(31,122,158,.28)}
+.sand{position:absolute;left:30%;right:0;height:14px;background:var(--gold);opacity:.35}
+.mat{position:absolute;left:50%;width:42%;height:14px;background:var(--pool);opacity:.4}
+.bar{position:absolute;left:52%;width:30%;height:3px;background:var(--ink);text-decoration:none}
+.ball{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.pf{position:absolute;left:0;width:56px;height:6px;top:44px;background:var(--ink)}
+.pool{position:absolute;left:0;right:0;bottom:0;background:rgba(31,122,158,.35)}
+.spl{position:absolute;width:36px;height:36px;margin:-18px;border:3px solid var(--pool);border-radius:50%;opacity:0}
+.sc.ice{background:rgba(160,205,240,.35)}
+.gs{position:absolute;left:0;top:0}.gs polyline{fill:none;stroke:var(--ink);stroke-width:2}
+@media (max-width:620px){.row{grid-template-columns:1fr;gap:4px}.nums{text-align:left}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>One regular guy at the Winter Olympics</h1>
+<p class="lede">An average adult man enters 11 events across ice, snow and sliding sports. We simulate his performances thousands of times and see how far he is from gold.</p>
+
+<div class="ctrl">
+<label>His fitness<select id="fit"><option value="0.88">Couch regular</option><option value="1" selected>Average regular</option><option value="1.12">Weekend jogger</option></select></label>
+<label>Olympics to simulate<select id="runs"><option>500</option><option selected>2000</option><option>10000</option></select></label>
+<button id="go">Run the Olympics</button>
+</div>
+
+<div class="kpis" id="kpis"></div>
+
+<section class="panel"><h2>Every event, as a share of gold-level performance</h2>
+<p class="note">Press Play on any event to watch it. The gold marker is the benchmark. The bar is his median result; “best fluke” is his single best result across all simulations.</p>
+<div id="rows"></div></section>
+
+<p class="note">Gold benchmarks are rounded approximations of recent Olympic-level results. His baselines are guesses for an untrained adult who somehow gets onto the ice, slope or track, not measured data, and the random variation is a simple lognormal model.</p>
+</main>
+<script>
+const E=[
+{g:'Ice',n:'Speed skating 500 m',lo:1,gold:34.4,reg:75,d:500,sd:.05},
+{g:'Ice',n:'Speed skating 5000 m',lo:1,gold:370,reg:780,d:5000,sd:.07},
+{g:'Ice',n:'Short track 1000 m',lo:1,gold:86,reg:150,d:1000,sd:.06},
+{g:'Ice',n:'Figure skating',lo:0,gold:330,reg:25,u:'pts',sd:.2},
+{g:'Snow',n:'Alpine downhill',lo:1,gold:102,reg:260,d:3000,sd:.08},
+{g:'Snow',n:'Cross-country 15 km',lo:1,gold:2220,reg:6300,d:15000,sd:.08},
+{g:'Snow',n:'Biathlon 10 km',lo:1,gold:1380,reg:4200,d:10000,sd:.08},
+{g:'Snow',n:'Ski jumping',lo:0,gold:105,reg:30,u:'m',sd:.15},
+{g:'Snow',n:'Snowboard halfpipe',lo:0,gold:93,reg:15,u:'pts',sd:.25},
+{g:'Sliding',n:'Skeleton',lo:1,gold:59,reg:78,d:1615,sd:.07},
+{g:'Sliding',n:'Luge',lo:1,gold:47,reg:62,d:1400,sd:.07}];
+const $=id=>document.getElementById(id);
+const nrm=()=>Math.sqrt(-2*Math.log(1-Math.random()))*Math.cos(2*Math.PI*Math.random());
+function fmt(e,v){if(!e.lo)return v.toFixed(e.u==='pts'?0:2)+' '+e.u;
+ if(v>=3600){const h=Math.floor(v/3600),m=Math.floor(v%3600/60),s=Math.round(v%60);return h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+ if(v>=60){const m=Math.floor(v/60);return m+':'+(v%60).toFixed(1).padStart(4,'0')}
+ return v.toFixed(2)+' s'}
+function base(e,f){return e.lo?e.reg/f:e.reg*f}
+function ratio(e,v){return Math.min(1,e.lo?e.gold/v:v/e.gold)}
+function gap(e,f){const r=ratio(e,base(e,f));return e.d*(1-r)}
+function dist(m){return m>=1000?(m/1000).toFixed(1)+' km':Math.round(m)+' m'}
+function run(){
+ const f=+$('fit').value,N=+$('runs').value;let podium=0,rows=[];
+ const best=E.map(()=>0),med=[];
+ E.forEach((e,i)=>{const rs=[];for(let k=0;k<N;k++){const v=base(e,f)*Math.exp((e.lo?1:1)*e.sd*nrm());
+  const r=ratio(e,v);rs.push(r);if(r>best[i])best[i]=r}
+  rs.sort((a,b)=>a-b);med[i]=rs[N>>1]});
+ for(let k=0;k<N;k++){}
+ podium=best.filter(b=>b>=.95).length;
+ const mi=med.indexOf(Math.max(...med)),wi=med.indexOf(Math.min(...med));
+ $('kpis').innerHTML=
+ `<div class="kpi"><b>${podium?podium:'0'}</b><span>events where his best fluke reached podium range (95% of gold)</span></div>
+  <div class="kpi"><b>${Math.round(med[mi]*100)}%</b><span>his closest event: ${E[mi].n}</span></div>
+  <div class="kpi"><b>${Math.round(med[wi]*100)}%</b><span>his furthest event: ${E[wi].n}</span></div>
+  <div class="kpi"><b>${N.toLocaleString()}</b><span>Olympics simulated, ${E.length} events each</span></div>`;
+ let h='',last='';
+ E.forEach((e,i)=>{if(e.g!==last){h+=`<div class="grp">${e.g}</div>`;last=e.g}
+  const typ=e.lo?base(e,f):base(e,f);
+  h+=`<div class="row"><div>${e.n}<br><button class="play" data-i="${i}">▶ Play</button></div><div class="bar" role="img" aria-label="${e.n}: ${Math.round(med[i]*100)} percent of gold"><i style="width:${med[i]*100}%"></i><u style="left:calc(100% - 3px)"></u></div>
+  <div class="nums"><b>${fmt(e,typ)}</b> vs ${fmt(e,e.gold)}<br>median ${Math.round(med[i]*100)}% · best fluke ${Math.round(best[i]*100)}%</div><div class="stage" id="st${i}" hidden></div></div>`});
+ $('rows').innerHTML=h;
+}
+const rafs={},D=Math.PI/180,pt=(p,a,L)=>[p[0]+L*Math.sin(a*D),p[1]+L*Math.cos(a*D)],lr=(a,b,u)=>a+(b-a)*u;
+const EX={xc:'M-22 19H20',dh:'M-22 13H20',jump:'M-22 20H22',pipe:'M-14 18H14',skel:'M-24 9H26',luge:'M-28 9H24'};
+const SV=(c,x)=>`<svg class="fg" viewBox="-30 -45 60 70" width="60" height="70"><g stroke="${c}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none">${x?`<path class="sk" d="${x}" stroke="var(--ink)" stroke-width="2.4"/>`:''}<circle class="hd" r="4.2" fill="${c}"/><polyline/><polyline/><polyline/><polyline/><polyline/></g></svg>`;
+function draw(s,o){const g=s.querySelectorAll('polyline'),n=[16*Math.sin(o.ta*D),-16*Math.cos(o.ta*D)],hd=s.querySelector('.hd');
+ g[0].setAttribute('points','0,0 '+n);hd.setAttribute('cx',n[0]+5*Math.sin(o.ta*D));hd.setAttribute('cy',n[1]-5*Math.cos(o.ta*D));
+ for(let i=0;i<2;i++){let k=pt([0,0],o.l[i][0],10),f=pt(k,o.l[i][1],10);
+  g[1+i].setAttribute('points',`0,0 ${k} ${f}`);k=pt(n,o.a[i][0],7);f=pt(k,o.a[i][1],7);g[3+i].setAttribute('points',`${n} ${k} ${f}`)}}
+const gy=(K,x,W,H)=>{const G=H-14;if(K==='dh')return lr(24,G,x/W);if(K==='jump'){const a=W*.3;return x<a?lr(30,70,Math.max(0,(x-10)/(a-10))):lr(70,G,Math.min(1,(x-a)/(W*.7)))}
+ if(K==='pipe')return G-60*Math.pow(Math.min(1,Math.abs((x-W/2)/(W*.42))),4);return G};
+function stage(i){const e=E[i],f=+$('fit').value,st=$('st'+i),you=base(e,f),r=ratio(e,you),nm=e.n,race=!!e.d;
+ const K=/Speed|Short/.test(nm)?'skate':/Figure/.test(nm)?'fig':/downhill/.test(nm)?'dh':/Cross|Biathlon/.test(nm)?'xc':/jumping/.test(nm)?'jump':/halfpipe/.test(nm)?'pipe':/Skeleton/.test(nm)?'skel':'luge';
+ const H={skate:84,xc:84,dh:120,jump:130,pipe:120,fig:100,skel:70,luge:70}[K],G=H-14,fr=[1,r],bi=/Biathlon/.test(nm),curved=['dh','jump','pipe'].includes(K);
+ cancelAnimationFrame(rafs[i]);st.hidden=false;
+ const sc=k=>`<div class="sc ice${race?' fin':''}" style="height:${H}px"><span class="nm">${k?'You':'Gold'}</span>${curved||K==='skel'||K==='luge'?'':'<b class="gr" style="top:'+G+'px"></b>'}${SV(k?'var(--brick)':'var(--gold)',EX[K])}</div>`;
+ st.innerHTML=`<div>${sc(0)+sc(1)}</div><p class="note"></p>`;
+ const SC=[...st.querySelectorAll('.sc')],T=4500,t0=performance.now();
+ if(curved)SC.forEach(s=>{const W=s.clientWidth;let p='';for(let x=0;x<=W;x+=6)p+=x+','+gy(K,x,W,H)+' ';s.insertAdjacentHTML('afterbegin',`<svg class="gs" width="${W}" height="${H}"><polyline points="${p}"/></svg>`)});
+ (function step(now){const t=Math.min(1,(now-t0)/T);
+  SC.forEach((s,k)=>{const q=fr[k],W=s.clientWidth,F=s.querySelector('svg.fg'),sk=F.querySelector('.sk');let x=20,y=G-20,o,rot=0,sx=1,pr=t;
+   if(bi)pr=(t<.45?t:t<.55?.45:t-.1)/.9;
+   if(K==='skate'){x=20+pr*q*(W-50);const p=t*q*45,s_=Math.sin(p);y=G-16;o={ta:68,l:[[45+25*s_,-20+25*s_],[45-25*s_,-20-25*s_]],a:[[-55,-65],[10+30*s_,40+30*s_]]}}
+   else if(K==='xc'){x=20+pr*q*(W-50);const p=t*q*40,s_=Math.sin(p);o={ta:25,l:[[30*s_,30*s_-10],[-30*s_,-30*s_-10]],a:[[-50*s_+10,-50*s_+30],[50*s_+10,50*s_+30]]};
+    if(bi&&t>=.45&&t<.55){o={ta:10,l:[[5,0],[-5,0]],a:[[90,90],[90,90]]}}}
+   else if(K==='dh'){x=20+t*q*(W-50);y=gy(K,x,W,H)-12;rot=Math.atan((G-24)/W)/D;o={ta:72,l:[[75,-5],[75,-5]],a:[[60,20],[60,20]]}}
+   else if(K==='skel'){x=20+t*q*(W-50);y=44+Math.sin(t*40)*1.5;o={ta:88,l:[[-85,-88],[-85,-88]],a:[[-82,-85],[-82,-85]]}}
+   else if(K==='luge'){x=20+t*q*(W-50);y=44+Math.sin(t*40)*1.5;o={ta:-88,l:[[88,88],[88,88]],a:[[-70,-70],[-70,-70]]}}
+   else if(K==='jump'){const a=W*.3,L=W*.62;
+    if(t<.35){const u=t/.35;x=lr(10,a,u);y=gy(K,x,W,H)-12;rot=Math.atan(40/(a-10))/D;o={ta:70,l:[[75,-5],[75,-5]],a:[[60,20],[60,20]]};sk.setAttribute('d',EX.dh)}
+    else if(t<.85){const v=(t-.35)/.5;x=a+v*q*L;y=lr(58,gy(K,x,W,H)-20,v)-30*4*v*(1-v);o={ta:78,l:[[-78,-78],[-78,-78]],a:[[-85,-85],[-85,-85]]};sk.setAttribute('d','M-22 6L22 -3')}
+    else{x=a+q*L;y=gy(K,x,W,H)-18;o={ta:20,l:[[25,-20],[-10,-30]],a:[[40,40],[-40,-40]]};sk.setAttribute('d',EX.jump)}}
+   else if(K==='pipe'){const p=t*Math.PI*3,sp=Math.sin(p),dx=1.15*sp,ad=Math.abs(dx),air=Math.max(0,ad-1)/.15,up=sp*Math.cos(p)>0;
+    x=W/2+.42*W*dx;y=gy(K,x,W,H)-16-air*35*q;rot=(up?air:2-air)*180*(q===1?2:0)*(sp>0?1:-1);
+    o={ta:12,l:[[25+40*air,-25],[25+40*air,-25]],a:[[-50,-50],[50,50]]}}
+   else{ if(t<.3){x=lr(20,W*.35,t/.3);const s_=Math.sin(t*30);o={ta:5,l:[[12*s_,5],[-12*s_,-5]],a:[[70,70],[-70,-70]]}}
+    else if(t<.7){const u=(t-.3)/.4;x=lr(W*.35,W*.55,u);y=G-20-4*u*(1-u)*(q===1?42:6);sx=Math.cos(u*(q===1?3.5:.5)*2*Math.PI);o={ta:5,l:[[10,-20],[-5,-30]],a:[[20,40],[20,40]]}}
+    else{const u=(t-.7)/.3;x=lr(W*.55,W*.85,u);if(q===1)o={ta:5,l:[[0,0],[0,0]],a:[[70,70],[-70,-70]]};
+     else{const z=Math.min(1,u*2);x=W*.55+u*30;y=lr(G-20,G-6,z);o={ta:lr(5,88,z),l:[[lr(0,-85,z),lr(0,-85,z)],[lr(0,-85,z),lr(0,-85,z)]],a:[[lr(20,-60,z),lr(20,-60,z)],[lr(20,-60,z),lr(20,-60,z)]]}}}}
+   draw(F,o);F.style.transform=`translate(${x-30}px,${y-45}px) rotate(${rot}deg) scaleX(${sx})`});
+  if(t<1){rafs[i]=requestAnimationFrame(step);return}
+  st.querySelector('.note').textContent=race?`Gold finishes in ${fmt(e,e.gold)}. You are ${dist(gap(e,f))} short of the line and finish in about ${fmt(e,you)}.`:`Gold: ${fmt(e,e.gold)}. You: ${fmt(e,you)}, which is ${Math.round(r*100)}% of gold.`})(t0)}
+$('rows').onclick=ev=>{const b=ev.target.closest('.play');if(b)stage(+b.dataset.i)};
+$('go').onclick=run;run();
+</script>
+</body>
+</html>

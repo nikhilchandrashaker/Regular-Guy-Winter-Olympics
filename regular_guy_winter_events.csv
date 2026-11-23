@@ -1,0 +1,12 @@
+discipline,event,direction,unit,gold_benchmark,regular_baseline,distance_m,noise_sd
+Ice,Speed skating 500 m,lower_is_better,s,34.4,75,500,0.05
+Ice,Speed skating 5000 m,lower_is_better,s,370,780,5000,0.07
+Ice,Short track 1000 m,lower_is_better,s,86,150,1000,0.06
+Ice,Figure skating,higher_is_better,pts,330,25,,0.2
+Snow,Alpine downhill,lower_is_better,s,102,260,3000,0.08
+Snow,Cross-country 15 km,lower_is_better,s,2220,6300,15000,0.08
+Snow,Biathlon 10 km,lower_is_better,s,1380,4200,10000,0.08
+Snow,Ski jumping,higher_is_better,m,105,30,,0.15
+Snow,Snowboard halfpipe,higher_is_better,pts,93,15,,0.25
+Sliding,Skeleton,lower_is_better,s,59,78,1615,0.07
+Sliding,Luge,lower_is_better,s,47,62,1400,0.07
