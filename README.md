@@ -1,1 +1,0 @@
-# Regular-Guy-Winter-Olympics
